@@ -9,8 +9,27 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 window.YTPlayer = null;
 
 export function getVideoId(url) {
-  const [part1, part2] = url.split("?v=");
-  const [videoId] = part2.split("&");
+  let part1Separator;
+  let part2Separator = "?si";
+
+  if (url.includes("youtube.com/watch?")) {
+    part1Separator = "?v=";
+    part2Separator = "&";
+  }
+
+  if (url.includes("youtu.be/")) {
+    part1Separator = ".be/";
+  }
+
+  if (url.includes("/shorts/")) {
+    part1Separator = "/shorts/";
+  }
+
+  const [part1, part2] = url.split(part1Separator);
+  const [videoId] = part2.split(part2Separator);
+
+  console.log(videoId, part2Separator)
+
   return videoId;
 }
 
