@@ -28,8 +28,6 @@ export function getVideoId(url) {
   const [part1, part2] = url.split(part1Separator);
   const [videoId] = part2.split(part2Separator);
 
-  console.log(videoId, part2Separator)
-
   return videoId;
 }
 

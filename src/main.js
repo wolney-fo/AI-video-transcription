@@ -1,5 +1,6 @@
 import "./form.js";
 import "./copy.js";
+import "./clear-input.js";
 
 import "../styles/global.css";
 import "../styles/base.css";
